@@ -1,0 +1,3 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e88e357f5a174c4cb60f7d4f43492cc2)](https://www.codacy.com/manual/tmcbrigido/stackoverflow_survery_analysis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tmcbrigido/stackoverflow_survery_analysis&amp;utm_campaign=Badge_Grade)
+
+Check out the data set used in the project [here](https://stackoverflow.com/users/prediction-data?_ga=2.30532991.1165698549.1580848880-1311530265.1577027768).

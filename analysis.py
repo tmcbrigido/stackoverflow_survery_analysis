@@ -1,6 +1,5 @@
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib import style
@@ -18,10 +17,6 @@ df.head(5)
 list(df.columns)
 
 df.info()
-
-# Total Sample
-
-df.shape
 
 # Number of Respondends by Country
 
@@ -151,8 +146,7 @@ z = filter_by_usa.groupby(['OrgSize','BetterLife']).size().value_counts(normaliz
 
 z.plot(kind='bar')
 
-
-# Plot the salary distribution for US 
+# Plot the salary distribution US 
 
 fig = plt.figure(figsize=(15,10))
 distribution = filter_by_usa['ConvertedComp'].value_counts().sort_values(ascending=False).index.tolist()
@@ -162,9 +156,7 @@ sns.distplot(distribution, hist=True, kde=True,
              hist_kws={'edgecolor':'black'},
              kde_kws={'linewidth': 4})
 
-
 # Average Salary US
-
 
 filter_by_usa['ConvertedComp'].mean() # Gives an average of $249,546
 
@@ -203,16 +195,13 @@ filter_by_usa['ConvertedComp'].min() # Min = $0
 
 filter_by_usa['ConvertedComp'].dropna().reset_index().min()
 
-
 # CodeRev
 
 CodeRev = df['CodeRev'].value_counts(normalize=True)
 
 CodeRev.plot(kind='barh',figsize=(6,6), color="b")
 
-
 # Salary distribuition for Python over top 10 countries
-
 
 python = df.dropna().reset_index()
 
@@ -228,7 +217,6 @@ countries = python_salaries['Country'].value_counts().sort_values(ascending=Fals
 for i,country in enumerate(countries):
     plt.subplot(3,3,i+1)
     temp_salaries = python_salaries.loc[python_salaries['Country']==country,'ConvertedComp']
-
     ax = temp_salaries.plot(kind='kde')
     ax.axvline(temp_salaries.mean(), linestyle = '-', color = 'red')
     ax.text((temp_salaries.mean() + 1500), (float(ax.get_ylim()[1])*0.55), 'mean = $ ' + str(round(temp_salaries.mean(),0)), fontsize = 12)
@@ -236,7 +224,6 @@ for i,country in enumerate(countries):
     ax.set_xlim(-temp_salaries.mean(),temp_salaries.mean()+2*temp_salaries.std())
     
     ax.set_title('Annual Salary Distribution in {}'.format(country))
-
 plt.tight_layout()
 plt.savefig('developer_salaries_by_country.png',bbox_inches = 'tight')
 plt.show()
